@@ -13,7 +13,14 @@ const port = process.env.PORT || 4000
 
 // middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: [
+        "https://mern-food-delivery-app-rpm7.vercel.app", 
+        "https://mern-food-delivery-app-7t8y.vercel.app"
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+}));
 
 //db connection
 connectDB();
@@ -35,3 +42,4 @@ app.listen(port,()=>{
 
 
 //mongodb+srv://dulanjalisenarathna93:E2JUb0zfaT2FVp8D@cluster0.exkxkun.mongodb.net/?
+
